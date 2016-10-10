@@ -50,7 +50,9 @@ filesystem "cassandra_data" do
   mount "/var/lib/cassandra/data"
   user "cassandra"
   group "cassandra"
-  action [:create, :enable, :mount]
+  ignore_existing true
+  force true
+  action [:create, :enable, :umount, :mount]
 end
 
 # Or we can call the creation of a filesystem directly with the filesystem default LWRP
@@ -60,5 +62,7 @@ filesystem "cassandra_commitlog" do
   mount "/var/lib/cassandra/commitlog"
   user "cassandra"
   group "cassandra"
-  action [:create, :enable, :mount]
+  ignore_existing true
+  force true
+  action [:create, :enable, :umount, :mount]
 end
