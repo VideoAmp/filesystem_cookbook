@@ -43,6 +43,12 @@ include_recipe "lvm"
 #   action [:create, :enable, :mount]
 # end
 
+mount "/media/ephemeral0" do
+  only_if { ::File.exist?("/media/ephemeral0") }
+  device "/dev/xvdb"
+  action :umount
+end
+
 # Or we can call the creation of a filesystem directly with the filesystem default LWRP
 filesystem "cassandra_data" do
   fstype "ext4"
