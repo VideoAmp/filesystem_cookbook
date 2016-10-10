@@ -52,7 +52,5 @@
   "recipes": {
 
   },
-  "version": "0.10.6",
-  //"source_url": "https://github.com/atrull/filesystem_cookbook",
-  //"issues_url": "https://github.com/atrull/filesystem_cookbook/issues"
+  "version": "0.10.6"
 }
