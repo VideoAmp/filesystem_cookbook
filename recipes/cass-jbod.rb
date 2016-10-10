@@ -52,7 +52,7 @@ filesystem "cassandra_data" do
   group "cassandra"
   ignore_existing true
   force true
-  action [:create, :enable, :umount, :mount]
+  action [:create, :enable, :mount]
 end
 
 # Or we can call the creation of a filesystem directly with the filesystem default LWRP
@@ -64,5 +64,5 @@ filesystem "cassandra_commitlog" do
   group "cassandra"
   ignore_existing true
   force true
-  action [:create, :enable, :umount, :mount]
+  action [:create, :enable, :mount]
 end
