@@ -7,15 +7,22 @@ mount "/media/ephemeral0" do
   action :umount
 end
 
-filesystem "cassandra" do
-  fstype "ext4"
-  device "/dev/sda1"
-  mount "/var/lib/cassandra"
-  user "cassandra"
+#filesystem "cassandra" do
+#  fstype "ext4"
+#  device "/dev/sda1"
+#  mount "/var/lib/cassandra"
+#  user "cassandra"
+#  group "cassandra"
+#  ignore_existing true
+#  force true
+#  action [:create, :enable, :mount]
+#end
+
+directory '/var/lib/cassandra' do
+  owner "cassandra"
   group "cassandra"
-  ignore_existing true
-  force true
-  action [:create, :enable, :mount]
+  mode '0755'
+  action :create
 end
 
 directory '/var/lib/cassandra/data' do
